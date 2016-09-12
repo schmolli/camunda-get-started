@@ -23,10 +23,7 @@ public class ProcessRequestDelegate implements JavaDelegate {
   private final static Logger LOGGER = Logger.getLogger("LOAN-REQUESTS-APPROVED");
 
   public void execute(DelegateExecution execution) throws Exception {
-	Set<String> vnames = execution.getVariableNames();
-	for (String vname : vnames) {
-		LOGGER.info(vname+"\t"+execution.getVariable(vname));
-	}
+	execution.getVariableNames().forEach(vname -> LOGGER.info(vname+"\t"+execution.getVariable(vname)));
   }
 
 }
