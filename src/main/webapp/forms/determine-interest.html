@@ -1,4 +1,4 @@
-<form name="approveLoan">
+<form name="determineInterest">
   <div class="form-group">
     <label for="customerId">Customer Email</label>
     <input class="form-control" cam-variable-type="String" cam-variable-name="customerEmail" name="customerEmail" readonly="true" />
@@ -8,10 +8,7 @@
     <input class="form-control" cam-variable-type="Double" cam-variable-name="amount" name ="amount" readonly="true"/>
   </div>
   <div class="form-group">
-  	<label for="approved">Approve?</label>
-  	<select class="form-control" cam-variable-name="approved" cam-variable-type="Boolean">
-  		<option value="true">Yes</option>
-  		<option value="false">No</option>
-	</select>
+	<label for="anualInterest">Interest</label>
+  	<input class="form-control" type="text" cam-variable-type="Double" cam-variable-name="anualInterest" name="anualInterest"/> %
   </div>
 </form>

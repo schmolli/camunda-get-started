@@ -15,15 +15,18 @@ package org.camunda.bpm.getstarted.loanapproval;
 
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
-
+import java.util.Set;
 import java.util.logging.Logger;
 
 public class ProcessRequestDelegate implements JavaDelegate {
 
-  private final static Logger LOGGER = Logger.getLogger("LOAN-REQUESTS");
+  private final static Logger LOGGER = Logger.getLogger("LOAN-REQUESTS-APPROVED");
 
   public void execute(DelegateExecution execution) throws Exception {
-    LOGGER.info("Processing request by '"+execution.getVariable("customerId")+"'...");
+	Set<String> vnames = execution.getVariableNames();
+	for (String vname : vnames) {
+		LOGGER.info(vname+"\t"+execution.getVariable(vname));
+	}
   }
 
 }
