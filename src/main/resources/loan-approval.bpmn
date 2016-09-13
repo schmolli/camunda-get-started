@@ -9,6 +9,9 @@
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_0c4zr6d" sourceRef="StartEvent_1" targetRef="UserTask_11fud4o" />
     <bpmn:userTask id="UserTask_11fud4o" name="Approve Loan" camunda:formKey="embedded:app:forms/approve-loan.html" camunda:assignee="john">
+      <bpmn:extensionElements>
+        <camunda:taskListener class="org.camunda.bpm.getstarted.loanapproval.MailOnAssignmentTaskListener" event="assignment" />
+      </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_0c4zr6d</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1vbokmm</bpmn:outgoing>
     </bpmn:userTask>
@@ -48,6 +51,9 @@
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="SequenceFlow_1py6nvl" sourceRef="Task_1fhpfhd" targetRef="Task_18jgt13" />
     <bpmn:userTask id="Task_1fhpfhd" name="Determine Annual Interest" camunda:formKey="embedded:app:forms/determine-interest.html" camunda:assignee="${clerk}">
+      <bpmn:extensionElements>
+        <camunda:taskListener class="org.camunda.bpm.getstarted.loanapproval.MailOnAssignmentTaskListener" event="assignment" />
+      </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1q1uony</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1py6nvl</bpmn:outgoing>
     </bpmn:userTask>
