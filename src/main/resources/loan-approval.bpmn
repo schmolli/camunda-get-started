@@ -58,7 +58,7 @@
       <bpmn:outgoing>SequenceFlow_1py6nvl</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="SequenceFlow_04phlbd" sourceRef="Task_064bs9m" targetRef="ExclusiveGateway_1lh4078" />
-    <bpmn:sendTask id="Task_064bs9m" name="Send confirmation to customer" camunda:class="org.camunda.bpm.getstarted.loanapproval.SendConfirmationToCustomerDelegate">
+    <bpmn:sendTask id="Task_064bs9m" name="Send confirmation to customer" camunda:asyncBefore="true" camunda:exclusive="false" camunda:class="org.camunda.bpm.getstarted.loanapproval.SendConfirmationToCustomerDelegate">
       <bpmn:incoming>SequenceFlow_1g05uyo</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_04phlbd</bpmn:outgoing>
     </bpmn:sendTask>
