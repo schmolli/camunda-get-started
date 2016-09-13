@@ -2,6 +2,9 @@
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.2.2">
   <bpmn:process id="approve-loan" name="Loan Approval" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1" name="Loan Request Received" camunda:formKey="embedded:app:forms/request-loan.html">
+      <bpmn:extensionElements>
+        <camunda:executionListener class="org.camunda.bpm.getstarted.loanapproval.StartExecutionListener" event="start" />
+      </bpmn:extensionElements>
       <bpmn:outgoing>SequenceFlow_0c4zr6d</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_0c4zr6d" sourceRef="StartEvent_1" targetRef="UserTask_11fud4o" />
@@ -10,6 +13,9 @@
       <bpmn:outgoing>SequenceFlow_1vbokmm</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:endEvent id="EndEvent_1i5bz86" name="Loan Request Approved">
+      <bpmn:extensionElements>
+        <camunda:executionListener class="org.camunda.bpm.getstarted.loanapproval.EndExecutionListener" event="end" />
+      </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_09sx2bx</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1vbokmm" sourceRef="UserTask_11fud4o" targetRef="ExclusiveGateway_1jlfaud" />
