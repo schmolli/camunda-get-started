@@ -41,7 +41,7 @@
       <bpmn:outgoing>SequenceFlow_1g05uyo</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="SequenceFlow_1py6nvl" sourceRef="Task_1fhpfhd" targetRef="Task_18jgt13" />
-    <bpmn:userTask id="Task_1fhpfhd" name="Determine Annual Interest" camunda:formKey="embedded:app:forms/determine-interest.html" camunda:assignee="mary">
+    <bpmn:userTask id="Task_1fhpfhd" name="Determine Annual Interest" camunda:formKey="embedded:app:forms/determine-interest.html" camunda:assignee="${clerk}">
       <bpmn:incoming>SequenceFlow_1q1uony</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1py6nvl</bpmn:outgoing>
     </bpmn:userTask>
